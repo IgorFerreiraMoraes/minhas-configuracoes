@@ -1,6 +1,10 @@
 local plugins = {
     -- Appearance
-    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        dependencies = 'nvim-lua/plenary.nvim'
+    },
     'shaunsingh/nord.nvim',
 
     -- Completers
@@ -31,16 +35,14 @@ local plugins = {
 
     -- Navigation
     'theprimeagen/harpoon',
+    'tpope/vim-fugitive',
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.4',
-        dependencies = { { 'nvim-lua/plenary.nvim' } }
+        tag = '0.1.5',
+        dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    'tpope/vim-fugitive',
-    { 'akinsho/toggleterm.nvim',         version = "*",      config = true },
+    { 'akinsho/toggleterm.nvim', version = "*", config = true },
 }
 
-local opts = {}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins, {})
 
