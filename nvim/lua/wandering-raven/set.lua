@@ -1,3 +1,5 @@
+vim.opt.bh = "delete"
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -26,5 +28,9 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.matchpairs = "(:),{:},[:],<:>"
 
-vim.o.shell = vim.fn.executable('pwsh') and 'pwsh' or 'powershell'
+vim.opt.shell = vim.fn.executable('pwsh') and 'pwsh' or 'powershell'
 
+vim.opt.fileformat = "dos"
+vim.opt.endofline = true
+vim.opt.endoffile = true
+vim.opt.fixendofline = true
