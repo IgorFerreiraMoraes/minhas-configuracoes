@@ -1,13 +1,12 @@
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {"lua", "html", "css", "javascript", "typescript"},
-    
-    sync_install = false,
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "lua", "html", "css", "javascript", "typescript" },
 
-    -- Install missing parsers when entering buffer
-    auto_install = true,
+	sync_install = false,
 
-    highlight = {
-        enable = true,
-    },
-}
+	-- Install missing parsers when entering buffer
+	auto_install = true,
 
+	highlight = {
+		enable = true,
+	},
+})

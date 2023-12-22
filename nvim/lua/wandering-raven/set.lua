@@ -28,7 +28,7 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.matchpairs = "(:),{:},[:],<:>"
 
-vim.opt.shell = vim.fn.executable('pwsh') and 'pwsh' or 'powershell'
+vim.opt.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
 
 vim.opt.fileformat = "dos"
 vim.opt.endofline = true

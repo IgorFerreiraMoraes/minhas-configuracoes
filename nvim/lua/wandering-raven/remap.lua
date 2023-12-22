@@ -12,4 +12,3 @@ vim.keymap.set("n", "<C-b>", "<C-b>zz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
