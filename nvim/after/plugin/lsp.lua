@@ -8,9 +8,10 @@ end)
 require("mason").setup()
 require("mason-tool-installer").setup({
 	ensure_installed = {
-		"eslint_d",
-		"prettierd",
+		"eslint",
+		"prettier",
 		"stylua",
+		"black",
 	},
 })
 require("mason-lspconfig").setup({
@@ -22,6 +23,7 @@ require("mason-lspconfig").setup({
 		"rust_analyzer",
 		"tsserver",
 		"volar",
+		"pyright",
 	},
 	handlers = {
 		lsp_zero.default_setup,

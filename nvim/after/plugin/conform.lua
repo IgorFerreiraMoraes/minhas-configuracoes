@@ -1,16 +1,15 @@
 require("conform").setup({
 	formatters_by_ft = {
-		javascript = { { "prettierd", "prettier" } },
-		vue = { { "prettierd", "prettier" } },
+		javascript = { "prettier" },
+		vue = { "prettier" },
 		lua = { "stylua" },
-	},
-	formatters = {
-		prettier = {
-			require_cwd = false,
-		},
+		python = { "black" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
 		timeout_ms = 500,
+	},
+	format_after_save = {
+		lsp_fallback = true,
 	},
 })
