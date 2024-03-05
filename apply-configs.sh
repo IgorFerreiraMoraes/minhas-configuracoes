@@ -1,5 +1,5 @@
 # Apply Neovim configuration
-cp -r neovim ~/. local/share/
+cp -r nvim ~/.config/
 
 # Apply themes
 mkdir -p ~/.fonts
