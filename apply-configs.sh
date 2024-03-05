@@ -6,6 +6,7 @@ mkdir -p ~/.fonts
 cp -r cinnamon/fonts/* ~/.fonts
 cp -r cinnamon/themes/* ~/.themes
 cp -r cinnamon/icons/* ~/.local/share/icons
+rm ~/.local/share/icons/photoshop.png
 fc-cache -f -v
 gsettings set org.cinnamon.desktop.interface font-name "Barlow Regular 10"
 gsettings set org.nemo.desktop font "Barlow Regular 10"
