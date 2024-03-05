@@ -12,8 +12,6 @@ gsettings set org.nemo.desktop font "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface document-font-name "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface monospace-font-name "Sono Regular 10"
 gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Barlow Regular 10"
-cd ~/.themes
-dconf load /org/gnome/terminal/legacy/profiles:/ < ~/nord-light-profile.dconf
+
+dconf load /org/gnome/terminal/legacy/profiles:/ < cinnamon/themes/nord-light-profile.dconf
 gsettings set org.cinnamon.desktop.background picture-uri "file://$HOME/.themes/bg.png"
-
-
