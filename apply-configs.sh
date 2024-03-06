@@ -16,5 +16,5 @@ gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Barlow Regular 
 dconf load /org/cinnamon/ < cinnamon/config-files/cinnamon_dconf.txt
 gsettings set org.cinnamon.desktop.background picture-uri "file://$HOME/.themes/bg.png"
 dconf load /org/gnome/terminal/legacy/profiles:/ < cinnamon/themes/nord-light-profile.dconf
-cp -r cinnamon/config-files/0.json ~/.config/cinnamon/spices/menu@cinnamon.org
+cp -r cinnamon/config-files/0.json ~/.config/cinnamon/spices/menu@cinnamon.org/
 cp -r cinnamon/config-files/cinnamon.css /home/scripttest/.themes/Orchis-Light-Nord/cinnamon/
