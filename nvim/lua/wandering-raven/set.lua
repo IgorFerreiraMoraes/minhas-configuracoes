@@ -28,8 +28,6 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.matchpairs = "(:),{:},[:],<:>"
 
-vim.opt.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
-
 vim.opt.endofline = true
 vim.opt.endoffile = true
 vim.opt.fixendofline = true

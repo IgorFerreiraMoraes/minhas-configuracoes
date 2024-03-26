@@ -1,5 +1,5 @@
 local plugins = {
-	-- Appearance
+    -- Appearance
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -7,7 +7,7 @@ local plugins = {
 	},
 	"shaunsingh/nord.nvim",
 
-	-- Completers
+    -- Completers
 	"windwp/nvim-autopairs",
 	"windwp/nvim-ts-autotag",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -26,13 +26,14 @@ local plugins = {
 		},
 	},
 
-	-- Formatters
+   	-- Formatters
 	{
 		"stevearc/conform.nvim",
 		config = function()
 			require("conform").setup()
 		end,
 	},
+
 
 	-- Navigation
 	{
