@@ -31,3 +31,11 @@ vim.opt.matchpairs = "(:),{:},[:],<:>"
 vim.opt.endofline = true
 vim.opt.endoffile = true
 vim.opt.fixendofline = true
+
+vim.opt.clipboard = "unnamedplus"
+for _, motion in ipairs({'d', 'c'}) do
+    -- Normal mode mappings
+    vim.api.nvim_set_keymap('n', motion, '"_' .. motion, { noremap = true })
+    -- Visual mode mappings
+    vim.api.nvim_set_keymap('x', motion, '"_' .. motion, { noremap = true })
+end
