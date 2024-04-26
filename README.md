@@ -1,5 +1,5 @@
 # Minhas Configurações
-Configuração automática a partir de uma instalação nova do [Linux Mint](https://linuxmint.com/) Cinnamon.
+Configuração automática a partir de uma instalação nova do [Fedora](https://fedoraproject.org/) com GNOME.
 
 Este repositório contém um script que aplica todas as minhas preferências, instala aplicativos, fontes e temas ao sistema operacional sem a necessidade de navegar nos menus e fazer tudo a mão.
 
@@ -7,13 +7,15 @@ Este repositório contém um script que aplica todas as minhas preferências, in
 
 ### Aplicativos
 
-- **Wine**
-- **Adobe Photoshop CC 2021**
 - **Google Chrome**
-- **Node.js e npm**
-- **Neovim**
+- **OpenTabletDriver**
+- **Obsidian**
+- **Wine**
 - **GitHub Desktop**
-- **Nautilus**
+- **Neovim**
+- **Node.js e npm**
+- **Adobe Photoshop CC 2021**
+- **Figma Agent**
 
 ### Temas
 
