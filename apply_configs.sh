@@ -26,7 +26,6 @@ sudo dnf install ./OpenTabletDriver.rpm
 sudo dracut --regenerate-all --force
 
 # Wine
-source /etc/os-release 
 sudo dnf install dnf-plugins-core -y 
 sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/39/winehq.repo
 sudo dnf install winehq-stable -y
