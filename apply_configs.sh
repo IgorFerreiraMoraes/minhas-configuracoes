@@ -1,5 +1,5 @@
 # Remove Unwanted Programs
-sudo dnf remove firefox libreoffice* gnome-boxes connections contacts gnome-maps -y
+sudo dnf remove firefox libreoffice* gnome-boxes connections gnome-contacts gnome-maps -y
 rm -r ~/.mozilla
 sudo dnf autoremove -y
 sudo dnf clean all
@@ -17,19 +17,19 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Chrome
 flatpak install --noninteractive flathub com.google.Chrome
 
-# OpenTabletDriver
-flatpak install --noninteractive flathub net.opentabletdriver.OpenTabletDriver
-
 # Obsidian
 flatpak install --noninteractive flathub md.obsidian.Obsidian
 
+# OpenTabletDriver
+wget https://github.com/OpenTabletDriver/OpenTabletDriver/releases/latest/download/OpenTabletDriver.rpm
+sudo dnf install ./OpenTabletDriver.rpm
+sudo dracut --regenerate-all --force
+
 # Wine
-sudo dnf update
-sudo dnf -y install dnf-plugins-core 
-sudo rpm --import https://dl.winehq.org/wine-builds/winehq.key
 source /etc/os-release 
-sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/${VERSION_ID}/winehq.repo
-sudo dnf install winehq-stable
+sudo dnf install dnf-plugins-core -y 
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/39/winehq.repo
+sudo dnf install winehq-stable -y
 wine --version
 
 ##############################
@@ -58,12 +58,9 @@ nvm install --lts
 ##############################
 
 # Photoshop
-mkdir -p ~/Programs
-wget https://github.com/LinSoftWin/Photoshop-CC2022-Linux/releases/download/2.1.3/photoshop2021install.sh
-sh ./photoshop2021install.sh ~/Programs
-rm photoshop2021install.sh
-curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
-WINEPREFIX=~/Programs/Adobe-Photoshop wine CameraRaw_12_2_1.exe
+chmod u+x ./photoshop2021install.sh
+./photoshop2022install.sh ~/.wine
+curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe WINEPREFIX=~/.wine/Adobe-Photoshop wine CameraRaw_12_2_1.exe
 
 # Figma Agent
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/neetly/figma-agent-linux/main/scripts/install.sh)"
@@ -79,20 +76,16 @@ mkdir extensions
 cd extensions
 
 # User Themes
-wget https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v54.shell-extension.zip
-gnome-extensions install user-themegnome-shell-extensions.gcampax.github.com.v54.shell-extension.zip
+wget https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v57.shell-extension.zip
+gnome-extensions install user-themegnome-shell-extensions.gcampax.github.com.v57.shell-extension.zip
 
 # Blur my Shell
-wget https://extensions.gnome.org/extension-data/blur-my-shellaunetx.v58.shell-extension.zip
-gnome-extensions install blur-my-shellaunetx.v58.shell-extension.zip
-
-# Dash to Dock
-wget https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v89.shell-extension.zip
-gnome-extensions install dash-to-dockmicxgx.gmail.com.v89.shell-extension.zip
+wget https://extensions.gnome.org/extension-data/blur-my-shellaunetx.v61.shell-extension.zip
+gnome-extensions install blur-my-shellaunetx.v61.shell-extension.zip
 
 # Hide Top Bar
-wget https://extensions.gnome.org/extension-data/hidetopbarmathieu.bidon.ca.v116.shell-extension.zip
-gnome-extensions install hidetopbarmathieu.bidon.ca.v116.shell-extension.zip
+wget https://extensions.gnome.org/extension-data/hidetopbarmathieu.bidon.ca.v117.shell-extension.zip
+gnome-extensions install hidetopbarmathieu.bidon.ca.v117.shell-extension.zip
 
 cd ..
 
@@ -107,7 +100,7 @@ git clone https://github.com/vinceliuice/Orchis-theme.git
 cd Orchis-theme
 ./install.sh -t default -c light -s standard -l --tweaks solid nord
 cp -r ~/.themes/Orchis-Light-Nord/gtk-4.0 ~/.config/gtk-4.0
-gsettings set org.gnome.shell.extensions.user-theme name "Orchis-Light-Nord"
+dconf write /org/gnome/shell/extensions/user-theme/name "'Orchis-Light-Nord'"
 gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Light-Nord"
 
 cd ..
@@ -127,7 +120,6 @@ mkdir -p ~/.icons/
 sudo cp -r ~/.local/share/icons/Graphite-* /usr/share/icons
 sudo mv ~/.local/share/icons/Graphite-* ~/.icons/
 gsettings set org.gnome.desktop.interface cursor-theme "Graphite-dark-nord-cursors"
-sudo nano /etc/dconf/db/gdm.d/01-cursor-settings #cursor-theme='Graphite-dark-nord-cursors'
 cd ..
 cd ..
 
@@ -137,7 +129,8 @@ cp -r resources/fonts/* ~/.fonts
 cp -r resources/icons/* ~/.local/share/icons
 gsettings set org.gnome.desktop.interface font-name "Barlow Regular 10"
 gsettings set org.gnome.desktop.wm.preferences titlebar-font "Barlow Regular 10"
-gsettings set org.nautilus.desktop font "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface document-font-name "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface monospace-font-name "Sono Regular 10"
+gsettings set org.gnome.background picture-uri resources/bg.jpg
+gsettings set org.gnome.background picture-uri-dark resources/bg.jpg
 dconf load /org/gnome/terminal/legacy/profiles:/ < resources/themes/nord-light-profile.dconf
