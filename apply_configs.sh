@@ -130,6 +130,6 @@ gsettings set org.gnome.desktop.interface font-name "Barlow Regular 10"
 gsettings set org.gnome.desktop.wm.preferences titlebar-font "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface document-font-name "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface monospace-font-name "Sono Regular 10"
-gsettings set org.gnome.background picture-uri resources/bg.jpg
-gsettings set org.gnome.background picture-uri-dark resources/bg.jpg
+gsettings set org.gnome.background picture-uri resources/bg.png
+gsettings set org.gnome.background picture-uri-dark resources/bg.png
 dconf load /org/gnome/terminal/legacy/profiles:/ < resources/themes/nord-light-profile.dconf
