@@ -59,7 +59,7 @@ nvm install --lts
 # Photoshop
 chmod u+x ./photoshop2021install.sh
 ./photoshop2022install.sh ~/.wine
-curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe WINEPREFIX=~/.wine/Adobe-Photoshop wine CameraRaw_12_2_1.exe
+curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe WINEPREFIX=~/.wine wine CameraRaw_12_2_1.exe
 
 # Figma Agent
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/neetly/figma-agent-linux/main/scripts/install.sh)"
