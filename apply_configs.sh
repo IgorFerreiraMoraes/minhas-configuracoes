@@ -21,7 +21,9 @@ flatpak install --noninteractive flathub com.google.Chrome
 flatpak install --noninteractive flathub md.obsidian.Obsidian
 
 # OpenTabletDriver
-flatpak install --noninteractive net.opentabletdriver.OpenTabletDriver
+wget https://github.com/OpenTabletDriver/OpenTabletDriver/releases/latest/download/OpenTabletDriver.rpm
+sudo dnf install ./OpenTabletDriver.rpm
+sudo dracut --regenerate-all --force
 
 # Wine
 sudo dnf install dnf-plugins-core -y 
@@ -99,8 +101,7 @@ cd Orchis-theme
 cp -r ~/.themes/Orchis-Light-Nord/gtk-4.0 ~/.config/gtk-4.0
 dconf write /org/gnome/shell/extensions/user-theme/name "'Orchis-Light-Nord'"
 gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Light-Nord"
-sudo flatpak override --filesystem=$HOME/.themes
-sudo flatpak override --env=GTK_THEME=Orchis-Light-Nord
+
 cd ..
 
 # Tela-circle icon theme
