@@ -1,6 +1,7 @@
+fedora_version=$(cat /etc/fedora-release | grep -o '[0-9]*')
+
 # Remove Unwanted Programs
-sudo dnf remove firefox libreoffice* gnome-boxes connections gnome-contacts gnome-maps -y
-rm -r ~/.mozilla
+sudo dnf remove libreoffice* connections gnome-contacts gnome-maps -y
 sudo dnf autoremove -y
 sudo dnf clean all
 
@@ -14,22 +15,24 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Basic Programs
 ##############################
 
-# Chrome
-flatpak install --noninteractive flathub com.google.Chrome
+# Firefox
+flatpak install --noninteractive flathub org.mozilla.firefox
 
 # Obsidian
 flatpak install --noninteractive flathub md.obsidian.Obsidian
 
+# Flatseal
+flatpak install --noninteractive flathub com.github.tchx84.Flatseal
+
 # OpenTabletDriver
 wget https://github.com/OpenTabletDriver/OpenTabletDriver/releases/latest/download/OpenTabletDriver.rpm
-sudo dnf install ./OpenTabletDriver.rpm
-sudo dracut --regenerate-all --force
+sudo dnf install ./OpenTabletDriver.rpm -y
+systemctl --user enable opentabletdriver.service --now
 
 # Wine
-sudo dnf install dnf-plugins-core -y 
-sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/39/winehq.repo
+sudo dnf install dnf-plugins-core -y
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/$fedora_version/winehq.repo
 sudo dnf install winehq-stable -y
-wine --version
 
 ##############################
 # Programming
@@ -101,6 +104,9 @@ cd Orchis-theme
 cp -r ~/.themes/Orchis-Light-Nord/gtk-4.0 ~/.config/gtk-4.0
 dconf write /org/gnome/shell/extensions/user-theme/name "'Orchis-Light-Nord'"
 gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Light-Nord"
+sudo flatpak override --env=GTK_THEME=Orchis-Light-Nord
+sudo flatpak override --env=GTK_THEME=Orchis-Light-Nord
+sudo flatpak override --filesystem=$HOME/.themes
 
 cd ..
 
@@ -122,14 +128,15 @@ gsettings set org.gnome.desktop.interface cursor-theme "Graphite-dark-nord-curso
 cd ..
 cd ..
 
+curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh | bash
+
 # Resources
 mkdir -p ~/.fonts
 cp -r resources/fonts/* ~/.fonts
-cp -r resources/icons/* ~/.local/share/icons
 gsettings set org.gnome.desktop.interface font-name "Barlow Regular 10"
 gsettings set org.gnome.desktop.wm.preferences titlebar-font "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface document-font-name "Barlow Regular 10"
 gsettings set org.gnome.desktop.interface monospace-font-name "Sono Regular 10"
-gsettings set org.gnome.background picture-uri resources/bg.png
-gsettings set org.gnome.background picture-uri-dark resources/bg.png
+gsettings set org.gnome.desktop.background picture-uri resources/bg.jpg
+gsettings set org.gnome.desktop.background picture-uri-dark resources/bg.jpg
 dconf load /org/gnome/terminal/legacy/profiles:/ < resources/themes/nord-light-profile.dconf
