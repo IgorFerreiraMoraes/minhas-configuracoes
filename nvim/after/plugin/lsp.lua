@@ -23,7 +23,7 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"html",
 		"lua_ls",
-		"tsserver",
+		"ts_ls",
 		"volar",
 		"pyright",
 	},

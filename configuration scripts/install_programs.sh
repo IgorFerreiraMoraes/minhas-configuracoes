@@ -14,7 +14,7 @@
 
 	# Wine
 	sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/39/winehq.repo
-	sudo dnf install winehq-stable -y
+	sudo dnf install winehq-stable -y --allowerasing
 
 ##############################
 # Development
@@ -25,10 +25,10 @@
 	flatpak install flathub io.github.shiftey.Desktop --noninteractive
 
 	# Neovim
-	flatpak install flathub io.neovim.nvim --noninteractive
-	mkdir -p ~/.local/bin
-	ln -s /var/lib/flatpak/exports/bin/io.neovim.nvim ~/.local/bin/nvim
-	cp -r nvim ~/.var/app/io.neovim.nvim/config/
+	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+	chmod u+x nvim.appimage
+	sudo mv nvim.appimage /usr/local/bin/nvim
+	cp -r nvim ~/.config/
 	
 	# Node && NPM
 	wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
