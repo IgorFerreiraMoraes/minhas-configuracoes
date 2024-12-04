@@ -43,6 +43,9 @@
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 	nvm install node
 	
+	# Godot
+	flatpak install flathub org.godotengine.Godot --noninteractive
+	
 ##############################
 # Design
 ##############################
