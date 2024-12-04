@@ -16,6 +16,13 @@
 	sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/39/winehq.repo
 	sudo dnf install winehq-stable -y --allowerasing
 
+	# Auto CPU Freq
+	git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+	cd auto-cpufreq && sudo ./auto-cpufreq-installer
+	sudo auto-cpufreq --install
+	cd ..
+	sudo rm -r auto-cpufreq
+
 ##############################
 # Development
 ##############################
