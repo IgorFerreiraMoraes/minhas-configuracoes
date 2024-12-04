@@ -23,7 +23,7 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"html",
 		"lua_ls",
-		"ts_ls",
+		-- "ts_ls",
 		"volar",
 		"pyright",
 	},
@@ -32,12 +32,12 @@ require("mason-lspconfig").setup({
 		volar = function()
 			require("lspconfig").volar.setup({})
 		end,
-		tsserver = function()
+		ts_ls = function()
 			local vue_typescript_plugin = require("mason-registry")
 				.get_package("vue-language-server")
 				:get_install_path() .. "/node_modules/@vue/language-server" .. "/node_modules/@vue/typescript-plugin"
 
-			require("lspconfig").tsserver.setup({
+			require("lspconfig").ts_ls.setup({
 				init_options = {
 					plugins = {
 						{
