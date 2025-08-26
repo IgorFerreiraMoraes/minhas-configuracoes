@@ -1,44 +1,20 @@
-# Minhas Configurações
-Configuração automática a partir de uma instalação nova do [Fedora](https://fedoraproject.org/) com GNOME.
+# Meu Setup Linux
+Este repositório contém um conjunto de scripts que automatizam a configuração do meu ambiente pessoal no [Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/) com [GNOME](https://www.gnome.org/). Eles foram feitos fornecer uma maneira rápida de preparar uma nova instação para o meu uso diário, desde a configuração do sistema até a instalação de aplicativos e a criação de ambientes de desenvolvimento.
 
-Este repositório contém um script que aplica todas as minhas preferências, instala aplicativos, fontes e temas ao sistema operacional sem a necessidade de navegar nos menus e fazer tudo a mão.
+## O Que É Feito
+- Configuração do Sistema: Atualiza pacotes já instalados, remove softwares padrão não desejados, ajusta repositórios.
 
-## Conteúdo
+- Instalação de Programas: Instala os meus aplicativos essenciais, incluindo ferramentas de produtividade, software de criação e design, e utilidades do sistema, usando principalmente [Flatpak](https://flatpak.org/).
 
-### Aplicativos
+- Ambiente de Desenvolvimento: Configura um contêiner [Toolbx](https://containertoolbx.org/) com ferramentas para desenvolvimento, como Git, Neovim e Node.js.
 
-- **Google Chrome**
-- **OpenTabletDriver**
-- **Obsidian**
-- **Wine**
-- **GitHub Desktop**
-- **Neovim**
-- **Node.js e npm**
-- **Adobe Photoshop CC 2021**
-- **Figma Agent**
+- Personalização e Temas: Aplica as minhas preferências ao GNOME, com extensões, [Pacote de Ícones](https://github.com/IgorFerreiraMoraes/Mignon-icon-theme), e temas para terminal e navegador.
 
-### Temas
+## Como Usar
+Como mencionado, essas configurações são "sob medida" para a forma que eu uso o computador. Outro aviso é para lerem os scripts antes de executá-los para entender todas as alterações que eles farão, rodar arquivos aleatórios da internet tem riscos.
 
-Obrigado [Vince Liuice](https://github.com/vinceliuice) pelos temas!
+1. Clone este repositório para sua máquina com Fedora Silverblue: `git clone https://github.com/IgorFerreiraMoraes/minhas-configuracoes.git`
 
-- **Orchis-light**: Um tema GTK moderno.
-- **Tela-circle**: Tema de ícones.
-- **Graphite-dark**: Tema do cursor.
+2. Dê permissão ao script: `chmod +x ./apply_configs.sh`
 
-### Fontes instaladas
-
-- **Barlow Regular**
-- **Sono Regular**
-
-## Neovim
-- TreeSitter.
-- Tema Nord.
-- Autopairs e Autotag.
-- Mason.
-- Conform.
-- Harpoon.
-- Telescope.
-- Toggleterm.
-
-## Uso
-Basta executar o arquivo [`setup.sh`](https://github.com/IgorFerreiraMoraes/minhas-configuracoes/releases/tag/v1.0.0) que tudo se configura sozinho.
+3. Execute o script plicipal: `./apply_configs.sh`
