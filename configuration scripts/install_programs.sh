@@ -10,11 +10,11 @@
 	  org.gnome.Snapshot \
 	  org.gnome.clocks \
 	  org.gnome.baobab \
-	  org.gnome.Evince \
+	  org.gnome.Papers \
 	  org.gnome.Loupe \
 	  org.gnome.Logs \
 	  org.gnome.TextEditor \
-	  org.gnome.Totem \
+	  org.gnome.Showtime \
 	  org.gnome.DejaDup
 	  
 	# Productivity
