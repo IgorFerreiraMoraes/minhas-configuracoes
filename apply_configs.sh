@@ -1,4 +1,5 @@
-# Make the configuration scripts executable
+#!/usr/bin/env bash
+
 chmod u+x ./'configuration scripts'/*.sh
 
 ./'configuration scripts'/initial_package_config.sh

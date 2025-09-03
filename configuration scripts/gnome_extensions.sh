@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 extension_list=(
     "hidetopbar@mathieu.bidon.ca"
     "paperwm@paperwm.github.com"
