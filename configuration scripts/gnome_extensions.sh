@@ -2,7 +2,6 @@
 
 extension_list=(
     "hidetopbar@mathieu.bidon.ca"
-    "paperwm@paperwm.github.com"
 )
 
 for extension in "${extension_list[@]}"; do
