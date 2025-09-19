@@ -28,7 +28,6 @@
 	flatpak install --noninteractive flathub \
 	  com.github.tchx84.Flatseal \
 	  me.timschneeberger.jdsp4linux \
-	  com.mattjakeman.ExtensionManager \
 	  org.pulseaudio.pavucontrol
 	  
 	# OpenTabletDriver
